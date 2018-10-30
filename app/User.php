@@ -15,6 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $primaryKey = "id";
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -27,4 +28,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function TPU_TIPO_USUARIO()
+    {
+        return $this->hasOne('App\TPU_TIPO_USUARIO', '{TPU_COD', 'TPU_TIPO_USUARIO');
+    }
+
 }

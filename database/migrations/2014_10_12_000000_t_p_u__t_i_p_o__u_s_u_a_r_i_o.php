@@ -14,9 +14,9 @@ class TPUTIPOUSUARIO extends Migration
     public function up()
     {
         //
-        Schema::create('TPU_TIPOUSUARIO', function (Blueprint $table) {
+        Schema::create('TPU_TIPO_USUARIO', function (Blueprint $table) {
             $table->increments('TPU_COD');
-            $table->string('TPU_DESC');
+            $table->string('TPU_DESC',45);
             $table->timestamps();
         });
     }
@@ -29,5 +29,6 @@ class TPUTIPOUSUARIO extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('TPU_TIPOUSUARIO');
     }
 }

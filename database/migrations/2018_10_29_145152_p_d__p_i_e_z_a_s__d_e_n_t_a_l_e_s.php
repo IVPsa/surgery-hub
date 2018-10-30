@@ -14,6 +14,12 @@ class PDPIEZASDENTALES extends Migration
     public function up()
     {
         //
+        Schema::create('PD_PIEZAS_DENTALES', function (Blueprint $table) {
+            $table->increments('PD_COD');
+            $table->string('PD_NOMBRE',45);
+            $table->string('PD_NUMERO',45);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,5 +30,6 @@ class PDPIEZASDENTALES extends Migration
     public function down()
     {
         //
+          Schema::dropIfExists('PD_PIEZAS_DENTALES');
     }
 }

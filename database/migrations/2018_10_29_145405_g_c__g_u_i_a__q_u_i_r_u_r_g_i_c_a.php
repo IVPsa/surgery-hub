@@ -14,6 +14,16 @@ class GCGUIAQUIRURGICA extends Migration
     public function up()
     {
         //
+        Schema::create('GC_GUIA_QUIRURGICA', function (Blueprint $table) {
+            $table->increments('GC_COD');
+            $table->text('GC_URL');
+
+            $table->integer('GC_CT_COD')->unsigned();
+            $table->foreign('GC_CT_COD')->references('CT_COD')->on('CT_CASO_TERMINADO');
+            $table->timestamps();
+        });
+
+
     }
 
     /**
@@ -24,5 +34,6 @@ class GCGUIAQUIRURGICA extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('GC_GUIA_QUIRURGICA');
     }
 }

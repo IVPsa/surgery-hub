@@ -14,6 +14,16 @@ class PCPACIENTE extends Migration
     public function up()
     {
         //
+        Schema::create('PC_PACIENTE', function (Blueprint $table) {
+            $table->increments('PC_COD');
+            $table->string('PC_RUT',12);
+            $table->string('PC_NOMBRE',45);
+            $table->string('PC_APELLIDO',45);
+            $table->date('PC_FECHA_NACIMENTO');
+            $table->integer('PC_USR_COD')->unsigned();
+            $table->foreign('PC_USR_COD')->references('id')->on('users');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,5 +34,6 @@ class PCPACIENTE extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('PC_PACIENTE');
     }
 }
