@@ -13,7 +13,7 @@
                <button type="button" class="btn btn-success btn-lg" style="width:240px; height:200px;">
                  <i class="fa fa-list-alt" style="font-size:150px; width:202px;"></i>
                  <br />
-                ListadoDePacientes
+                Listado De Pacientes
                </button>
             </a>
         </div>
