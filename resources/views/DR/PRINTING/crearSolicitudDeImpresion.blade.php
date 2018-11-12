@@ -14,7 +14,7 @@
                 <div class="form-group row">
                   <label  for="first_name" class="  col-3 col-form-label text-right">NOMBRE DE ARCHIVO:</label>
                   <div class="col-7">
-                    <input type="text"  class="form-control">
+                    <input type="text" name="ArchivoNombre"  class="form-control">
                   </div>
                   <div class="col-2">
                     <button type="button" class="btn-primary form-control" name="button">examinar</button>
@@ -23,7 +23,7 @@
 
                 <div class="form-group row">
                   <div class="col-12" align="center">
-                    <textarea class="form-control"  name="name" rows="8" cols="80">arrastre archivo aqui</textarea>
+                    <textarea class="form-control" name="archivo3d" rows="8" cols="80">arrastre archivo aqui</textarea>
                   </div>
                 </div>
 
@@ -36,7 +36,7 @@
                 <div class="form-group row">
                   <label  for="first_name" class="  col-3 col-form-label text-right">TIPO:</label>
                   <div class="col-9">
-                    <select class="form-control" name="">
+                    <select class="form-control" name="tpArchivoImpresion" >
                       <option value=""></option>
                       <option value=""></option>
                       <option value=""></option>

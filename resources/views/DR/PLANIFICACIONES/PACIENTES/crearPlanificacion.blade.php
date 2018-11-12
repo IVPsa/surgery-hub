@@ -13,35 +13,35 @@
         <div class="form-group row">
           <label  for="first_name" class="  col-3 col-form-label text-right">RUT:</label>
           <div class="col-9">
-            <input type="text"  class="form-control">
+            <input type="text" readonly  class="form-control" >
           </div>
         </div>
 
         <div class="form-group row">
           <label  for="first_name" class="  col-3 col-form-label text-right">NOMBRE:</label>
           <div class="col-9">
-            <input type="text"  class="form-control">
+            <input type="text"  readonly class="form-control">
           </div>
         </div>
 
         <div class="form-group row">
           <label  for="first_name" class="  col-3 col-form-label text-right">APELLIDO:</label>
           <div class="col-9">
-            <input type="text"  class="form-control">
+            <input type="text"  readonly class="form-control">
           </div>
         </div>
 
         <div class="form-group row">
           <label  for="first_name" class="  col-3 col-form-label text-right">FECHA DE NACIMIENTO:</label>
           <div class="col-9">
-            <input type="text"  class="form-control">
+            <input type="text"  readonly class="form-control">
           </div>
         </div>
 
         <div class="form-group row">
           <label  for="first_name" class="  col-3 col-form-label text-right">FECHA DE DICOM::</label>
           <div class="col-9">
-            <input type="date"  class="form-control">
+            <input type="date"  readonly class="form-control">
           </div>
         </div>
 
@@ -50,7 +50,7 @@
         <div class="form-group row">
           <label  for="first_name" class="  col-3 col-form-label text-right">PROGRAMA DE PLANIFICACION:</label>
           <div class="col-9">
-            <select class="form-control" name="">
+            <select class="form-control" name="programaPlanificacion">
               <option value=""></option>
               <option value=""></option>
               <option value=""></option>
