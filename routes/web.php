@@ -24,20 +24,56 @@ Route::group(['prefix'=>'Planificaciones'],function () {
 
   Route::view('/IndexPlanificaciones', 'DR.PLANIFICACIONES.IndexPlanificaciones')->name('IndexPlanificaciones');
   Route::view('/listaDePlanificaciones', 'DR.PLANIFICACIONES.listaDePlanificaciones')->name('listaDePlanificaciones');
-  Route::view('/fichaDePlanificacion', 'DR.PLANIFICACIONES.fichaDePlanificacion')->name('fichaDePlanificacion');
-  
+
+
+  Route::get('/fichaDePlanificacion/{id}', [
+    'uses' => 'PlanificacionesController@fichaDePlanificacion',
+  ])->name('fichaDePlanificacion');
 
     Route::group(['prefix'=>'Pacientes'],function () {
 
-      Route::view('/crearPlanificacion', 'DR.PLANIFICACIONES.PACIENTES.crearPlanificacion')->name('crearPlanificacion');
-      Route::view('/ficha', 'DR.PLANIFICACIONES.PACIENTES.fichaPaciente')->name('fichaDePaciente');
+      Route::view('/crearPlanificacion/{id}', 'DR.PLANIFICACIONES.PACIENTES.crearPlanificacion')->name('crearPlanificacion');
       Route::view('/ingresoDePaciente', 'DR.PLANIFICACIONES.PACIENTES.ingresoDePaciente')->name('ingresoDePaciente');
-      Route::view('/listadoDePacientes', 'DR.PLANIFICACIONES.PACIENTES.listadoDePacientes')->name('listadoDePacientes');
       Route::view('/indexPacientes', 'DR.PLANIFICACIONES.PACIENTES.indexPacientes')->name('indexPacientes');
 
+      Route::get('/listadoDePacientes', [
+        'uses' => 'PlanificacionesController@listadoDePacientes',
+      ])->name('listadoDePacientes');
+
+      Route::get('/fichaPaciente/{id}', [
+        'uses' => 'PlanificacionesController@fichaPaciente',
+      ])->name('fichaDePaciente');
+
       Route::post('/registrarPaciente',[
-      'uses' => 'Planificaciones@registrarPaciente',
+      'uses' => 'PlanificacionesController@registrarPaciente',
       ])->name('registrarPaciente');
+
+      Route::get('/eliminarPaciente/{id}',[
+      'uses' => 'PlanificacionesController@eliminarPaciente',
+      ])->name('eliminarPaciente');
+
+      Route::post('/subirDicom', [
+        'uses' => 'PlanificacionesController@subirDicom',
+        'as' => 'subirDicom',
+      ]);
+
+      Route::get('/formularioCreacionDePlanificacion/{id}', [
+        'uses' => 'PlanificacionesController@formularioCreacionDePlanificacion',
+      ])->name('formularioCreacionDePlanificacion');
+
+
+      Route::post('/crearPlanificacion/{id}', [
+        'uses' => 'PlanificacionesController@crearPlanificacion',
+      ])->name('crearPlanificacion');
+
+
+      Route::post('/AgregarDiente', [
+        'uses' => 'PlanificacionesController@AgregarDiente',
+      ])->name('AgregarDiente');
+
+      Route::post('/eliminarDiente',[
+      'uses' => 'PlanificacionesController@eliminarDiente',
+      ])->name('eliminarDiente');
 
     });
 

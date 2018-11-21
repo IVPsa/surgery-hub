@@ -21,25 +21,25 @@
           <table class="table table-bordered table-hover  table-striped" align="center"  id="table">
               <thead class="thead-dark">
                   <tr>
-                    <th>ID</th>
-                    <th>DESCRIPCION </th>
-                    <th>ESTADO</th>
-                    <th>TIPO</th>
-
-
-                    <th width="100px" colspan="2" >ACCION</th>
+                    <th>RUT</th>
+                    <th>NOMBRE </th>
+                    <th>APELLIDO  </th>
+                    <th>FECHA NACIMIENTO</th>
+                    <th width="50px" colspan="2" >ACCION</th>
                   </tr>
               </thead>
+            @foreach ($listadoDepacientes as $lista)
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$lista->PC_RUT}}</td>
+                <td>{{$lista->PC_NOMBRE}}</td>
+                <td>{{$lista->PC_APELLIDO}}</td>
+                <td>{{$lista->PC_FECHA_NACIMENTO}}</td>
                 <td>
-                  <a href="{{route('fichaDePaciente')}}"><button type="button" class="btn btn-primary">FICHA</button></a>
-                  <button type="button" class="btn btn-danger">ELIMINAR</button>
+                  <a href="{{route('fichaDePaciente', $lista->PC_COD)}}"><button type="button" class="btn btn-primary">FICHA</button></a>
+                  <a href="{{route('eliminarPaciente', $lista->PC_COD)}}"><button type="button" class="btn btn-danger">ELIMINAR</button></a>
                 </td>
               </tr>
+              @endforeach
             </table>
 
 

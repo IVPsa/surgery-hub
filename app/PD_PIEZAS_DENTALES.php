@@ -14,8 +14,9 @@ class PD_PIEZAS_DENTALES extends Model
     protected $fillable = [
 
       'PD_NOMBRE',
-      'PD_NUMERO'
+      'PD_NUMERO',
+      'PD_SECTOR'
     ];
 
-    
+
 }

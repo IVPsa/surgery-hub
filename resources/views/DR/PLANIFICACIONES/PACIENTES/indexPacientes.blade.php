@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
 @section('content')
+@include('layouts.messages')
+
 <div class="card-body">
   <h3 class="text-center display-3">Pacientes</h3>
 

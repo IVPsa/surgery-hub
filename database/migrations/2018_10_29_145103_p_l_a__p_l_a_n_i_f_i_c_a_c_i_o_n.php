@@ -17,8 +17,7 @@ class PLAPLANIFICACION extends Migration
         Schema::create('PLA_PLANIFICACION', function (Blueprint $table) {
             $table->increments('PLA_COD');
             $table->string('PLA_PROGRAMA', 45);
-            //$table->integer('PLA_PC_COD')->unsigned();
-            // $table->foreign('PLA_PC_COD')->references('PC_COD')->on('PC_PACIENTE');
+            $table->string('PLA_ESTADO', 45);
             $table->integer('PLA_DCM_COD')->unsigned();
             $table->foreign('PLA_DCM_COD')->references('DCM_COD')->on('DCM_DICOM');
             $table->timestamps();

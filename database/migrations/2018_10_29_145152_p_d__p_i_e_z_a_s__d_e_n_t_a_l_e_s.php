@@ -18,6 +18,7 @@ class PDPIEZASDENTALES extends Migration
             $table->increments('PD_COD');
             $table->string('PD_NOMBRE',45);
             $table->string('PD_NUMERO',45);
+            $table->string('PD_SECTOR',45);
             $table->timestamps();
         });
     }

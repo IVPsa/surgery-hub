@@ -16,7 +16,8 @@ class PLA_PLANIFICACION extends Model
 
       'PLA_PC_COD',
       'PLA_DCM_COD',
-      'PLA_PROGRAMA'
+      'PLA_PROGRAMA',
+      'PLA_ESTADO'
     ];
 
     public function DCM_DICOM()

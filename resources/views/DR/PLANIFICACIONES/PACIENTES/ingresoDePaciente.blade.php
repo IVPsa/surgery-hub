@@ -4,7 +4,7 @@
 <div class="card-body">
   <h3 class="text-center">Ingreso De paciente</h3>
 
-  <form class="" action="index.html" method="post">
+  <form class="" action="{{route('registrarPaciente')}}" method="post">
           <div class="container"  >
             @csrf
             <div class="form-group row">
@@ -38,7 +38,7 @@
             <div class="form-group row">
 
               <div class="col-12  ">
-                <button type="button" class="btn-primary form-control" name="button">INGRESAR</button>
+                <button type="post" class="btn-primary form-control" name="button">INGRESAR</button>
               </div>
             </div>
 
