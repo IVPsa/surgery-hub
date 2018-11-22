@@ -122,6 +122,17 @@
       </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright  text-center py-3" style="background-color:#cccccc;">© 2018 Copyright:
+      <a href="https://www.facebook.com/ivanvilugron/">Ivan Vilugron. AKA:Mr. V</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -57,6 +57,11 @@ Route::group(['prefix'=>'Planificaciones'],function () {
         'as' => 'subirDicom',
       ]);
 
+      Route::post('/subirStl', [
+        'uses' => 'PlanificacionesController@subirStl',
+        'as' => 'subirStl',
+      ]);
+
       Route::get('/formularioCreacionDePlanificacion/{id}', [
         'uses' => 'PlanificacionesController@formularioCreacionDePlanificacion',
       ])->name('formularioCreacionDePlanificacion');

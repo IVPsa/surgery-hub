@@ -18,7 +18,7 @@ use App\PLA_PLANIFICACION;
 use App\CT_CASO_TERMINADO;
 use App\PDPLAN_PIEZAS_DENTAL;
 use App\PD_PIEZAS_DENTALES;
-
+use App\MY_MODELO_YESO;
 use Illuminate\Support\Facades\Storage;
 
 class PlanificacionesController extends Controller
@@ -102,6 +102,27 @@ class PlanificacionesController extends Controller
 
     }
 
+    public function subirStl(Request $request){
+
+          $archivo=$request->file('ar3d')->store('public');
+
+
+          $nombreArchivo = $request->file('ar3d')->getClientOriginalName();
+          $id=$request->input('idPlan');
+
+          $subirArchivo= MY_MODELO_YESO::Create([
+            'MY_URL'=>$archivo,
+            'MY_NOMBRE'=> $nombreArchivo,
+            'MY_PLA_COD'=>$id,
+            'updated_at'=> Carbon::now(),
+            'created_at'=> Carbon::now()
+          ]);
+
+
+          return redirect()->route('fichaDePlanificacion',$id);
+
+    }
+
     public function  formularioCreacionDePlanificacion($id){
 
 
@@ -155,11 +176,13 @@ class PlanificacionesController extends Controller
 
         $infoPaciente=PC_PACIENTE::find($CodPaciente);
 
+        $modelos3d=DB::table('MY_MODELO_YESO')->where('MY_PLA_COD', $id)->get();
+
         $piezasPlanificacion= DB::table('PDPLAN_PIEZAS_DENTAL')
         ->join('PD_PIEZAS_DENTALES', 'PDPLAN_PIEZAS_DENTAL.PDPLAN_PD_COD', '=', 'PD_PIEZAS_DENTALES.PD_COD')
         ->where('PDPLAN_PLA_COD',$id)->get();
 
-        return view('DR.PLANIFICACIONES.fichaDePlanificacion', compact('infoPlanificacion','piezasDentales','infoPaciente','piezasPlanificacion'));
+        return view('DR.PLANIFICACIONES.fichaDePlanificacion', compact('infoPlanificacion','piezasDentales','infoPaciente','piezasPlanificacion','modelos3d'));
     }
 
     public function AgregarDiente(Request $request){

@@ -106,6 +106,63 @@
 
           </div>
         </form>
+      </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="text-center ">ARCHIVOS 3D</h4>
+      <div class="row">
+        <div class="table-responsive" >
+          <table class="table table-bordered table-hover  table-striped" align="center"  id="table">
+              <thead class="thead-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>NOMBRE </th>
+                    <th width="150px"  >ACCION</th>
+                  </tr>
+              </thead>
+              @foreach ($modelos3d as $listaModelos)
+
+              <tr>
+                <td>{{$listaModelos->MY_COD}}</td>
+                <td>{{$listaModelos->MY_NOMBRE}}</td>
+                <td>
+                  <a href="{{$listaModelos->MY_URL}}">
+                  <button class="btn-primary form-control">
+                    <i class="material-icons">file_download</i>
+                  </button>
+                  </a>
+                </td>
+              </tr>
+              @endforeach
+            </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <form class="" action="{{route('subirStl')}}" method="post"  enctype="multipart/form-data">
+      {{ csrf_field() }}
+      <input type="hidden" name="idPlan"  value="{{$infoPlanificacion->PLA_COD}}">
+
+      <div class="form-group row">
+        <label class="col-md-3 col-xs-12  col-form-label   text-right"> SELECCIONAR ARCHIVO 3D:</label>
+
+         <input type="file"  accept=".stl, .obj"   class="form-control-file col-9 col-form  col-xs-12 " name="ar3d"  id="files" />
+
+      </div>
+
+      <div class="form-group row">
+        <div class="col-12  ">
+          <button type="submit" class="btn-primary form-control" name="button">SUBIR ARCHIVO</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
 @endsection
