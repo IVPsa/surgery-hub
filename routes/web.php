@@ -23,7 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'Planificaciones'],function () {
 
   Route::view('/IndexPlanificaciones', 'DR.PLANIFICACIONES.IndexPlanificaciones')->name('IndexPlanificaciones');
-  Route::view('/listaDePlanificaciones', 'DR.PLANIFICACIONES.listaDePlanificaciones')->name('listaDePlanificaciones');
+
+
+  Route::get('/listaDePlanificaciones', [
+    'uses' => 'PlanificacionesController@listaDePlanificaciones',
+  ])->name('listaDePlanificaciones');
 
 
   Route::get('/fichaDePlanificacion/{id}', [
@@ -80,6 +84,8 @@ Route::group(['prefix'=>'Planificaciones'],function () {
       'uses' => 'PlanificacionesController@eliminarDiente',
       ])->name('eliminarDiente');
 
+
+
     });
 
 });
@@ -90,5 +96,14 @@ Route::group(['prefix'=>'3DPrinting'],function () {
   Route::view('/fichaDeImpresion', 'DR.PRINTING.fichaImpresion')->name('fichaDeImpresion');
   Route::view('/listadoDeImpresiones', 'DR.PRINTING.listadoDeImpresiones')->name('listadoDeImpresiones');
   Route::view('/index3Dprinting', 'DR.PRINTING.index3Dprinting')->name('index3Dprinting');
+
+});
+
+Route::group(['prefix'=>'Perfil'], function(){
+
+
+    Route::get('/MisDatos', [
+      'uses' => 'Perfil@DatosPersonales',
+    ])->name('DatosPersonales');
 
 });

@@ -22,24 +22,29 @@
               <thead class="thead-dark">
                   <tr>
                     <th>ID</th>
-                    <th>DESCRIPCION </th>
+                    <th>NOMBRE PACIENTE </th>
+                    <th>RUT</th>
+                    <th>FECHA DE CREACION</th>
                     <th>ESTADO</th>
-                    <th>TIPO</th>
+
 
 
                     <th width="100px" colspan="2" >ACCION</th>
                   </tr>
               </thead>
+              @foreach ($listadoPlan as $listado)
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$listado-> PC_COD}}</td>
+                <td>{{$listado-> PC_NOMBRE}} {{$listado-> PC_APELLIDO}} </td>
+                <td>{{$listado-> PC_RUT}}</td>
+                <td>{{$listado->created_at}}</td>
+                <td>{{$listado->PLA_ESTADO}}</td>
                 <td>
-                  <a href="{{route('fichaDePlanificacion')}}"><button type="button" class="btn btn-primary">FICHA</button></a>
+                  <a href=""><button type="button" class="btn btn-primary">FICHA</button></a>
                   <button type="button" class="btn btn-danger">ELIMINAR</button>
                 </td>
               </tr>
+              @endforeach
             </table>
 
 

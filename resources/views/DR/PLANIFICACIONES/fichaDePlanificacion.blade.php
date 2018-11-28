@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 @include('layouts.messages')
+
+
 <div class="card-body">
   <h3 class="text-center display-3">FICHA DE PLANIFICACION ID: {{$infoPlanificacion->PLA_COD}}</h3>
   <h4 class="text-center ">FICHA DE PACIENTE</h4>
@@ -128,7 +130,7 @@
                 <td>{{$listaModelos->MY_COD}}</td>
                 <td>{{$listaModelos->MY_NOMBRE}}</td>
                 <td>
-                  <a href="{{$listaModelos->MY_URL}}">
+                  <a href="{{ Storage::disk('public')->url($listaModelos->MY_URL)}}">
                   <button class="btn-primary form-control">
                     <i class="material-icons">file_download</i>
                   </button>
@@ -151,7 +153,7 @@
       <div class="form-group row">
         <label class="col-md-3 col-xs-12  col-form-label   text-right"> SELECCIONAR ARCHIVO 3D:</label>
 
-         <input type="file"  accept=".stl, .obj"   class="form-control-file col-9 col-form  col-xs-12 " name="ar3d"  id="files" />
+         <input type="file"     class="form-control-file col-9 col-form  col-xs-12 " name="ar3d"  id="files" />
 
       </div>
 
@@ -165,4 +167,22 @@
   </div>
 
 
+
+<div id="stl_cont"  >
+<canvas width="495" height="495" style="width: 495px; height: 495px;"></canvas>
+</div>
+<script src="{{ asset('/js/stl_viewer.min.js') }}"></script>
+<script src="{{ asset('/js/load_stl.min.js') }}"></script>
+<script>
+var stl_viewer=new StlViewer
+(
+  document.getElementById("stl_cont"),
+  {
+    models:
+    [
+      {filename:"http://192.168.10.10/public/storage/Holebar.stl"}
+    ]
+  }
+);
+</script>
 @endsection

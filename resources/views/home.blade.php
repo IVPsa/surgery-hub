@@ -10,7 +10,7 @@
 
                 <a href="{{route('IndexPlanificaciones')}}"><button type="button" class="btn btn-info"><i class="fa fa-clipboard" style="font-size:150px; width:202px;"></i> <br> PLANIFICACIONES</button></a>
                 <a href="{{route('index3Dprinting')}}"><button type="button" class="btn btn-warning"> <i class="fa fa-archive" style="font-size:150px; width:202px;"></i> <br> 3D PRINTING</button></a>
-                <a href=""><button type="button" class="btn btn-dark"> <i class="fa fa-user-md" style="font-size:150px; width:202px;"></i> <br> MIS DATOS</button></a>
+                <a href="{{route('DatosPersonales')}}"><button type="button" class="btn btn-dark"> <i class="fa fa-user-md" style="font-size:150px; width:202px;"></i> <br> MIS DATOS</button></a>
 
 
             </center>

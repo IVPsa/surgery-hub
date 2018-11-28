@@ -86,6 +86,25 @@ class PlanificacionesController extends Controller
         return redirect()->route('indexPacientes')->with('success', "Se ha eliminado correctamente un nuevo paciente.");
     }
 
+    public function listaDePlanificaciones(){
+
+      $id= Auth::id();
+      $listadoPlan=DB::table('PLA_PLANIFICACION')
+      ->join('DCM_DICOM', 'DCM_DICOM.DCM_COD', '=', 'PLA_PLANIFICACION.PLA_DCM_COD')
+      ->join('PC_PACIENTE', 'PC_PACIENTE.PC_COD', '=', 'DCM_DICOM.DCM_PC_COD')
+      ->select(
+        'PC_PACIENTE.PC_COD',
+        'PC_PACIENTE.PC_NOMBRE',
+        'PC_PACIENTE.PC_APELLIDO',
+        'PC_PACIENTE.PC_RUT',
+        'PLA_PLANIFICACION.PLA_ESTADO',
+        'PLA_PLANIFICACION.created_at')
+      ->where('PC_PACIENTE.PC_USR_COD',$id)->get();
+
+
+      return view('DR.PLANIFICACIONES.listaDePlanificaciones', compact('listadoPlan'));
+    }
+
     public function subirDicom(Request $request){
 
           $image=$request->file('dicom')->store('public');
@@ -104,7 +123,7 @@ class PlanificacionesController extends Controller
 
     public function subirStl(Request $request){
 
-          $archivo=$request->file('ar3d')->store('public');
+          $archivo=$request->file('ar3d')->store('public')>getClientOriginalName();
 
 
           $nombreArchivo = $request->file('ar3d')->getClientOriginalName();
@@ -226,4 +245,5 @@ class PlanificacionesController extends Controller
 
               return redirect()->route('fichaDePlanificacion',$ficha)->with('success', "Se ha eliminado correctamente el Diente.");
     }
+
 }
